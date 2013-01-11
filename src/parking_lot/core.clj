@@ -9,7 +9,7 @@
 
 (defn lot-full? [lot]
   (=(count (lot :lot )) (lot :size))
-	)
+)
 
 (defn less-than-80-percent? [lot]
   (< 
