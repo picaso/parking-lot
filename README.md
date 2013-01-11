@@ -1,35 +1,15 @@
 # parking-lot
 
-FIXME: description
+A practice implementation of TW parkingLot problem.
 
 ## Installation
 
-Download from http://example.com/FIXME.
+This project was bootstrapped using [Leiningen 2.0] (https://github.com/technomancy/leiningen)
 
 ## Usage
 
-FIXME: explanation
+Run the unit tests
 
-    $ java -jar parking-lot-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2013 FIXME
+    $ lein run
 
 Distributed under the Eclipse Public License, the same as Clojure.
