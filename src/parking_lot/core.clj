@@ -25,5 +25,5 @@
 
 (defn park[attendant car]
   (if (can-attendant-park? attendant) 
-    (conj ((attendant :lot) :lot) car)  "Sorry You can't Park")
+    (conj ((attendant :lot) :lot) car)  :lot-full-can't-park)
   )
