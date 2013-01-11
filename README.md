@@ -10,6 +10,6 @@ This project was bootstrapped using [Leiningen 2.0] (https://github.com/technoma
 
 Run the unit tests
 
-    $ lein run
+    $ lein test
 
 Distributed under the Eclipse Public License, the same as Clojure.
