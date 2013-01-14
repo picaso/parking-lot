@@ -8,6 +8,8 @@
 (def not-full-lot 
   {:lot '(:1 :2 :3 :4 :5 :6 :7 :8 :9) :size 10})
 
+
+
 (deftest should-let-above-18-park-in-not-full-lot 
   "Allow an Older guy park in a lot that is not 
   full"
