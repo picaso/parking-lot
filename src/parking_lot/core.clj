@@ -1,29 +1,41 @@
 (ns parking-lot.core 
   (:gen-class))
 
+(declare can-attendant-park?)
+
+(defprotocol Park
+  (park [this car]))
+
+(defrecord Lot [size alot])
 
 (def eighty-percent 4/5)
 
 (defn old-enough? [user]
-  (>(user :age) 16))
+  (>(-> user :age) 16))
 
 (defn lot-full? [lot]
-  (=(count (lot :lot )) (lot :size))
-)
+  (=(count (-> lot :alot )) (-> lot :size)))
 
 (defn less-than-80-percent? [lot]
   (< 
-   (/ (count (lot :lot )) (lot :size))
-   eighty-percent)
-  )
+   (/ (count (-> lot :alot )) (-> lot :size))
+   eighty-percent))
 
-(defn can-attendant-park? [attendant]
-  (or (and (old-enough? attendant) (not (lot-full? (attendant :lot))))
-  (and (not (old-enough? attendant)) 
-       (less-than-80-percent? (attendant :lot))))
-  )
+(defrecord Attendant [age lot]
+  Park
+  (park [this car] 
+        (if (can-attendant-park? this) 
+        (update-in  this [:lot :alot] conj :car)
+          :lot-full-can't-park ) ))
 
-(defn park[attendant car]
-  (if (can-attendant-park? attendant) 
-    (conj ((attendant :lot) :lot) car)  :lot-full-can't-park)
-  )
+(defn can-attendant-park? [attendant & args]
+  (if (instance? Attendant attendant)
+    (or 
+     (and (old-enough? attendant) 
+          (not (lot-full? (-> attendant :lot)))) 
+     (and (not (old-enough? attendant)) 
+          (less-than-80-percent? (-> attendant :lot))))
+    (not (lot-full? args))))
+
+
+
