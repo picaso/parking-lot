@@ -1,8 +1,6 @@
 (ns parking-lot.core-test
   (:use clojure.test
-        parking-lot.core))
-
-
+    parking-lot.core))
 
 (def full-lot (->Lot 10 [:1 :2 :3 :4 :5 :6 :7 :8 :9 :10]))
 
