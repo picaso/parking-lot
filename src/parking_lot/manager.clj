@@ -1,5 +1,5 @@
 (ns parking-lot.manager
-	(:use parking-lot.core)
+  (:use parking-lot.core)
   (:gen-class))
 
 (defn- available-lot
