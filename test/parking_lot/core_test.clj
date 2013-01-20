@@ -52,3 +52,15 @@
   (is (= :lot-full-can't-park (park attendant :car))))
 
 
+(deftest should-remove-car-from-lot
+  "Should remove specified car from a lot"
+  (def attendant (->Attendant 25 full-lot))
+   (is (= [:1 :2 :3 :4 :5 :6 :7 :8 :10] (-> (remove-car attendant :9) :lot :alot))))
+
+
+(deftest should-not-remove-non-existent-car-from-lot
+  "Should not be able to remove a car that doesn't exist"
+  (def attendant (->Attendant 25 full-lot))
+   (is (= :no-car-found (remove-car attendant :car))))
+  
+
