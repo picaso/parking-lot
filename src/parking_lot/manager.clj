@@ -11,14 +11,18 @@
   "Should get next available parking lot"
   [manager]
   (first (filter       
-        available-lot (-> manager :lots)) ))
+           available-lot (-> manager :lots)) ))
+
+(defn can-attendant-park? [lot]
+  (not (lot-full? lot))
+)
 
 (defrecord Manager [lots]
   Park
   (park [this car] 
         (let [alot (get-available-parking-lot this)]
-          (if (can-attendant-park? this alot) 
+          (if (can-attendant-park? alot) 
             (update-in  alot [:alot] conj :car)
-          :lot-full-can't-park ) )))
+            :lot-full-can't-park ) )))
 
 

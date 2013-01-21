@@ -1,7 +1,7 @@
 (ns parking-lot.manager-test
   (:use clojure.test
-    parking-lot.manager
-    parking-lot.core))
+        parking-lot.manager
+        parking-lot.core))
 
 (deftest should-test-manager
   "test that manager can manage multiple lots"
