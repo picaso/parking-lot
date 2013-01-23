@@ -7,8 +7,7 @@
     (and (old-enough? attendant) 
          (not (lot-full? (-> attendant :lot)))) 
     (and (not (old-enough? attendant)) 
-         (less-than-80-percent? (-> attendant :lot))))
-  )
+         (less-than-80-percent? (-> attendant :lot)))) )
 
 (defrecord Attendant [age lot]
   Park

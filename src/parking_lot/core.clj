@@ -23,6 +23,8 @@
     eighty-percent))
 
 (defn lot-full? [lot]
-  (=(count (-> lot :alot )) (-> lot :size)))
+  (if (nil? lot)
+    true
+  (=(count (-> lot :alot )) (-> lot :size))))
 
 (defrecord Lot [size alot])
